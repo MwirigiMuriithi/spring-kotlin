@@ -12,3 +12,6 @@ spring:
   h2:
     console:
       enabled: true
+jwt:
+  secret: ${JWT_SECRET}           # e.g., set in .env
+  expirationMs: ${JWT_EXPIRATION_MS} # e.g., 3600000 (1h)
