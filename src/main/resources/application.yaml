@@ -11,3 +11,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# JWT settings (loaded from environment via JwtUtils)
+jwt:
+  secret: ${JWT_SECRET}           # e.g., set in .env
+  expirationMs: ${JWT_EXPIRATION_MS} # e.g., 3600000 (1h)
