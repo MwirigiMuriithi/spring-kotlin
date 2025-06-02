@@ -10,13 +10,11 @@ class ProjectController(private val projectService: ProjectService) {
 
     // Get all projects
     @GetMapping
-    fun getAllProjects(): List<ProjectDTO> =
-        projectService.getAllProjects()
+    fun getAllProjects(): List<ProjectDTO> = projectService.getAllProjects()
 
     // Get project by ID
     @GetMapping("/{id}")
-    fun getProjectById(@PathVariable id: Long): ProjectDTO =
-        projectService.getProjectById(id)
+    fun getProjectById(@PathVariable id: Long): ProjectDTO = projectService.getProjectById(id)
 
     // Create a new project
     @PostMapping
@@ -32,7 +30,5 @@ class ProjectController(private val projectService: ProjectService) {
     // Delete a project
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deleteProject(@PathVariable id: Long) {
-        projectService.deleteProject(id)
-    }
+    fun deleteProject(@PathVariable id: Long) = projectService.deleteProject(id)
 }
