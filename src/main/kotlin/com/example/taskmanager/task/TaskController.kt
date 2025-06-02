@@ -8,21 +8,17 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/tasks")
 class TaskController(private val taskService: TaskService) {
 
-    // Get all tasks
     @GetMapping
-    fun getAllTasks(): List<TaskDTO> =
-        taskService.getAllTasks()
+    fun getAllTasks(): List<TaskDTO> = taskService.getAllTasks()
 
     // Get task by ID
     @GetMapping("/{id}")
-    fun getTaskById(@PathVariable id: Long): TaskDTO =
-        taskService.getTaskById(id)
+    fun getTaskById(@PathVariable id: Long): TaskDTO = taskService.getTaskById(id)
 
     // Create a new task
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createTask(@RequestBody taskDTO: TaskDTO): TaskDTO =
-        taskService.createTask(taskDTO)
+    fun createTask(@RequestBody taskDTO: TaskDTO): TaskDTO = taskService.createTask(taskDTO)
 
     // Update an existing task
     @PutMapping("/{id}")
@@ -32,7 +28,5 @@ class TaskController(private val taskService: TaskService) {
     // Delete a task
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deleteTask(@PathVariable id: Long) {
-        taskService.deleteTask(id)
-    }
+    fun deleteTask(@PathVariable id: Long) = taskService.deleteTask(id)
 }
